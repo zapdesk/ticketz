@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketz.Api", "Ticketz.Api\Ticketz.Api.csproj", "{A0EFDE20-A72B-405E-88A2-DF4DA65A0977}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketz.Core", "Ticketz.Core\Ticketz.Core.csproj", "{13E78F15-FED7-43BC-B250-DF8D79908287}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketz.Infrastructure", "Ticketz.Infrastructure\Ticketz.Infrastructure.csproj", "{1387A259-3802-4FCF-87C8-B64C4F82FD83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketz.Application", "Ticketz.Application\Ticketz.Application.csproj", "{812FD69C-D435-47C0-B885-ACC937A7A0F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0EFDE20-A72B-405E-88A2-DF4DA65A0977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0EFDE20-A72B-405E-88A2-DF4DA65A0977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0EFDE20-A72B-405E-88A2-DF4DA65A0977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0EFDE20-A72B-405E-88A2-DF4DA65A0977}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E78F15-FED7-43BC-B250-DF8D79908287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E78F15-FED7-43BC-B250-DF8D79908287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E78F15-FED7-43BC-B250-DF8D79908287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E78F15-FED7-43BC-B250-DF8D79908287}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1387A259-3802-4FCF-87C8-B64C4F82FD83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1387A259-3802-4FCF-87C8-B64C4F82FD83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1387A259-3802-4FCF-87C8-B64C4F82FD83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1387A259-3802-4FCF-87C8-B64C4F82FD83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{812FD69C-D435-47C0-B885-ACC937A7A0F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{812FD69C-D435-47C0-B885-ACC937A7A0F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{812FD69C-D435-47C0-B885-ACC937A7A0F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{812FD69C-D435-47C0-B885-ACC937A7A0F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
