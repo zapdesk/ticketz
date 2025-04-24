@@ -1,12 +1,11 @@
 name: Create and publish multi-arch Docker images
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'main'
-      - 'fix/**'
-      - 'dev'
-      - 'test-**'
+      - 'release/**'
     tags:
       - 'v*.*.*'
 env:
