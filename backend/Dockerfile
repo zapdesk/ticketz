@@ -1,15 +1,29 @@
 # syntax=docker/dockerfile:1.7-labs
 
-# Stage 1: Build the application
+# Use multi-stage build for development
 FROM node:20 AS build
 
+# Set working directory
 WORKDIR /usr/src/app
+
+# Trust npm registry and disable strict SSL
+RUN npm config set strict-ssl false
+RUN npm config set registry http://registry.npmjs.org/
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci && npm cache clean --force
+
+# Copy source code
 COPY . .
 
-RUN --mount=type=cache,target=/root/.npm \
-    npm ci && npm run build
+# Build TypeScript code
+RUN npm run build
 
-# Stage 2: Create the final image without source files
+# Production stage
 FROM node:20-alpine
 ARG TICKETZ_REGISTRY_URL
 
@@ -23,14 +37,26 @@ RUN wget -O dockerize.tar.gz https://github.com/jwilder/dockerize/releases/downl
     tar -C /usr/local/bin -xzf dockerize.tar.gz && \
     rm dockerize.tar.gz
 
-# Copy only the necessary build artifacts from the build stage
-COPY --from=build /usr/src/app/dist ./dist/
-COPY --from=build /usr/src/app/node_modules ./node_modules/
-COPY --from=build /usr/src/app/package.json ./package.json
-COPY --from=build /usr/src/app/scripts ./scripts/
+# Trust npm registry and disable strict SSL
+RUN npm config set strict-ssl false
+RUN npm config set registry http://registry.npmjs.org/
 
-# Make scripts executable
-RUN chmod +x ./scripts/*.sh
+# Copy built files from build stage
+COPY --from=build /usr/src/app/dist ./dist
+COPY --from=build /usr/src/app/node_modules ./node_modules
+COPY --from=build /usr/src/app/package*.json ./
+COPY --from=build /usr/src/app/scripts ./scripts
+
+# Copy additional required files
+COPY ./src/libs/wbot.ts ./src/libs/
+COPY ./src/queues.ts ./src/
+COPY ./src/server.ts ./src/
+COPY ./src/app.ts ./src/
+COPY ./src/bootstrap.ts ./src/
+COPY ./src/waversion.json ./src/
+
+# Make scripts executable (only if scripts directory exists)
+RUN if [ -d "./scripts" ]; then chmod +x ./scripts/*.sh; fi
 
 ENV NODE_ENV=production
 ENV PORT=3000

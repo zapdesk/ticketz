@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "name": "Next.js Project Structure",
+      "description": "Enforce Next.js 13+ app directory structure with proper routing and organization",
+      "patterns": ["app/**/*.js", "app/**/*.jsx", "app/**/*.ts", "app/**/*.tsx"],
+      "thinking": [
+        "Is this component using the correct Next.js routing pattern?",
+        "Are server and client components being used appropriately?",
+        "Are data fetching methods following Next.js best practices?",
+        "Is the component organized in the right directory based on its functionality?"
+      ]
+    },
+    {
+      "name": "Tailwind CSS Best Practices",
+      "description": "Ensure Tailwind CSS is being used effectively and consistently",
+      "patterns": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+      "thinking": [
+        "Are Tailwind classes organized from layout to typography to visual styles?",
+        "Could any repeated class combinations be extracted to a component or custom class?",
+        "Is responsive design being handled appropriately with Tailwind breakpoints?",
+        "Are we using Tailwind's utility classes instead of custom CSS when possible?"
+      ]
+    },
+    {
+      "name": "Authentication Implementation",
+      "description": "Guide authentication implementation using best practices",
+      "patterns": ["app/api/auth/**/*", "middleware.ts", "**/*auth*.js", "**/*auth*.ts"],
+      "thinking": [
+        "Is authentication state being managed securely?",
+        "Are protected routes properly implemented?",
+        "Is error handling comprehensive for authentication failures?",
+        "Are we following security best practices for auth tokens and sessions?"
+      ]
+    },
+    {
+      "name": "API Route Organization",
+      "description": "Ensure API routes follow RESTful conventions and are properly structured",
+      "patterns": ["app/api/**/*.js", "app/api/**/*.ts"],
+      "thinking": [
+        "Does this API route follow RESTful naming conventions?",
+        "Is error handling comprehensive and consistent?",
+        "Are requests being validated properly?",
+        "Is authentication being checked where necessary?"
+      ]
+    },
+    {
+      "name": "State Management",
+      "description": "Guide effective state management decisions",
+      "patterns": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+      "thinking": [
+        "Is this state local to the component or should it be shared?",
+        "Are we using appropriate React hooks for this use case?",
+        "Could this state management be simplified?",
+        "Should this state be persisted or is it transient?"
+      ]
+    },
+    {
+      "name": "Component Architecture",
+      "description": "Guide component design decisions",
+      "patterns": ["components/**/*.js", "components/**/*.jsx", "components/**/*.ts", "components/**/*.tsx"],
+      "thinking": [
+        "Is this component focused on a single responsibility?",
+        "Could this component be broken down into smaller, reusable pieces?",
+        "Are props well-defined with appropriate defaults and types?",
+        "Is this component optimized for rerendering performance?"
+      ]
+    },
+    {
+      "name": "TypeScript Type Definitions",
+      "description": "Ensure proper TypeScript typing",
+      "patterns": ["**/*.ts", "**/*.tsx"],
+      "thinking": [
+        "Are types defined explicitly and properly?",
+        "Are interface/type names descriptive and following conventions?",
+        "Are we avoiding 'any' types when possible?",
+        "Could this type be more specific or precise?"
+      ]
+    },
+    {
+      "name": "Form Handling",
+      "description": "Guide form implementation and validation",
+      "patterns": ["**/*form*.js", "**/*form*.jsx", "**/*form*.ts", "**/*form*.tsx"],
+      "thinking": [
+        "Is form validation comprehensive and user-friendly?",
+        "Are we handling form submission states properly (loading, success, error)?",
+        "Is form accessibility being considered?",
+        "Are form fields properly typed and validated?"
+      ]
+    },
+    {
+      "name": "Data Fetching",
+      "description": "Guide Next.js data fetching implementation",
+      "patterns": ["app/**/*.js", "app/**/*.ts"],
+      "thinking": [
+        "Is the appropriate Next.js data fetching method being used?",
+        "Are we handling loading and error states properly?",
+        "Is caching configured appropriately for this data?",
+        "Are we implementing proper revalidation strategies?"
+      ]
+    },
+    {
+      "name": "Environment Configuration",
+      "description": "Guide proper environment setup and configuration",
+      "patterns": [".env*", "next.config.js", "tailwind.config.js"],
+      "thinking": [
+        "Are environment variables named and used consistently?",
+        "Are sensitive values properly protected?",
+        "Is configuration separated appropriately by environment?",
+        "Is the configuration well-documented?"
+      ]
+    }
+  ]
+}

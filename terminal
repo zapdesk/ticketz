@@ -1,0 +1,4 @@
+mkdir frontend-next
+cd frontend-next
+npm init -y
+npm install next@latest react@latest react-dom@latest typescript@latest @types/react@latest @types/node@latest 
