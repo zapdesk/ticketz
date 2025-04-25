@@ -1,0 +1,40 @@
+{
+  "common": {
+    "loading": "Carregando...",
+    "error": "Ocorreu um erro",
+    "success": "Sucesso!",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "create": "Criar",
+    "back": "Voltar",
+    "next": "Próximo",
+    "search": "Buscar"
+  },
+  "auth": {
+    "signIn": "Entrar",
+    "signOut": "Sair",
+    "email": "E-mail",
+    "password": "Senha",
+    "forgotPassword": "Esqueceu a senha?",
+    "rememberMe": "Lembrar-me"
+  },
+  "companies": {
+    "title": "Empresas",
+    "list": "Lista de Empresas",
+    "create": "Criar Empresa",
+    "edit": "Editar Empresa",
+    "delete": "Excluir Empresa",
+    "name": "Nome da Empresa",
+    "email": "E-mail da Empresa",
+    "phone": "Número de Telefone",
+    "confirmDelete": "Tem certeza que deseja excluir esta empresa?"
+  },
+  "validation": {
+    "required": "Este campo é obrigatório",
+    "invalidEmail": "Por favor, insira um endereço de e-mail válido",
+    "minLength": "Deve ter pelo menos {0} caracteres",
+    "maxLength": "Deve ter no máximo {0} caracteres"
+  }
+} 
