@@ -1,27 +1,14 @@
-import axios from 'axios';
-import { authService } from './auth';
+import { Company } from '@/lib/types/company';
+import { BaseService, BaseListResponse } from './base';
 
-const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080';
-
-export interface Company {
-  id: number;
-  name: string;
-  address: string;
-  city: string;
-  country: string;
-  email: string;
-  phone: string;
-  // Add any other fields that your backend returns
+interface CompaniesResponse extends BaseListResponse {
+  companies: Company[];
 }
 
-export const companyService = {
-  async getCompanies(): Promise<Company[]> {
-    const token = authService.getToken();
-    const response = await axios.get(`${API_URL}/companies`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-    return response.data;
+class CompaniesService extends BaseService<Company, CompaniesResponse> {
+  constructor() {
+    super('companies');
   }
-}; 
+}
+
+export const companiesService = new CompaniesService(); 

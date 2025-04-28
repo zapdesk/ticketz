@@ -4,8 +4,8 @@ import { useState, useCallback } from 'react';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import CompanyList from './components/CompanyList';
 import CompanyModal from './components/CompanyModal';
-import { Company } from '@/types/company';
-import { companies } from '@/services/companies';
+import { Company } from '@/lib/types/company';
+import { companiesService } from '@/lib/services/company';
 import { toast } from 'react-hot-toast';
 
 export default function CompaniesPage() {
@@ -35,10 +35,10 @@ export default function CompaniesPage() {
   const handleSubmit = async (companyData: Partial<Company>) => {
     try {
       if (editingCompany) {
-        await companies.update(editingCompany.id, companyData);
+        await companiesService.update(editingCompany.id.toString(), companyData);
         toast.success('Company updated successfully');
       } else {
-        await companies.create(companyData);
+        await companiesService.create(companyData);
         toast.success('Company created successfully');
       }
       handleCloseModal();

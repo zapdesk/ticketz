@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { auth } from '@/services/auth';
+import { authService } from '@/lib/services/auth';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function LoginPage() {
     const password = formData.get('password') as string;
 
     try {
-      await auth.login({ email, password });
+      await authService.login({ email, password });
       router.push('/dashboard');
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to login. Please try again.');

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { auth } from '@/services/auth';
+import { authService } from '@/lib/services/auth';
 import { useEffect, useState } from 'react';
 
 export function Header() {
@@ -9,11 +9,11 @@ export function Header() {
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
-    setUser(auth.getUser());
+    setUser(authService.getCurrentUser());
   }, []);
 
-  const handleLogout = () => {
-    auth.logout();
+  const handleLogout = async () => {
+    await authService.logout();
     router.push('/login');
   };
 
